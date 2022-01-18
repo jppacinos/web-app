@@ -4,7 +4,7 @@
 const ProductService = {
   async read() {
     try {
-      const response = await fetch("/product.php");
+      const response = await fetch("./product.php");
       return await response.json();
     } catch {
       return [];
@@ -15,7 +15,7 @@ const ProductService = {
    * @param {FormData} data
    */
   async create(data) {
-    return await fetch("/product.php", { method: "POST", body: data });
+    return await fetch("./product.php", { method: "POST", body: data });
   },
 
   /**
@@ -24,11 +24,11 @@ const ProductService = {
    */
   async update(id, data) {
     data.append("_method", "PUT");
-    return await fetch(`/product.php?id=${id}`, { method: "POST", body: data });
+    return await fetch(`./product.php?id=${id}`, { method: "POST", body: data });
   },
 
   async delete(id) {
-    return await fetch(`/product.php?id=${id}`, { method: "DELETE" });
+    return await fetch(`./product.php?id=${id}`, { method: "DELETE" });
   },
 };
 
