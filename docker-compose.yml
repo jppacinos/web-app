@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        phpVersion: '8'
+        serverName: 'localhost'
+    container_name: app
+    ports:
+      - 80:80
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+
+  # try the app in php7.4
+  # app:
+  #   build:
+  #     context: .
+  #     args:
+  #       phpVersion: '7.4'
+  #       serverName: 'localhost'
+  #   container_name: app
+  #   ports:
+  #     - 80:80
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./:/var/www/html
